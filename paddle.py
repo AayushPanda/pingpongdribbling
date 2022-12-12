@@ -19,6 +19,7 @@ class Paddle(pygame.sprite.Sprite):
 
     def move(self, keystate):
         direction = -int(keystate[K_LEFT]) + int(keystate[K_RIGHT])
-        self.rect.x += direction * 7
+        if keystate[K_LSHIFT]: direction *= 2
+        self.rect.x += direction * 3
         self.rect.clamp_ip(self.screenbound)
         
